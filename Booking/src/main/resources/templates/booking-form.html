@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add New Booking</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <script th:src="@{/js/scripts.js}"></script>
+</head>
+<body class="bookings-form">
+<h1>Add New Booking</h1>
+<form th:action="@{/bookings}" th:object="${booking}" method="post">
+    <label for="customerId">Customer ID:</label>
+    <input type="text" id="customerId" th:field="*{customerId}" required>
+
+    <label for="packageId">Package ID:</label>
+    <input type="text" id="packageId" th:field="*{packageId}" required>
+
+    <label for="bookingDate">Booking Date:</label>
+    <input type="date" id="bookingDate" th:field="*{bookingDate}" required>
+
+    <label for="status">Status:</label>
+    <input type="text" id="status" th:field="*{status}" required>
+
+    <button type="submit">Add</button>
+</form>
+<a th:href="@{/bookings}">Back to Bookings</a>
+
+<footer>
+    <p>&copy; Bhanu Upadhyay MCA 2026. All rights reserved.</p>
+</footer>
+</body>
+</html>
+
+
+

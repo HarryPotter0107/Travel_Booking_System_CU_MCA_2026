@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Travel Packages</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <script th:src="@{/js/scripts.js}"></script>
+</head>
+<body  class="packages">
+<h1>Travel Packages</h1>
+<a th:href="@{/packages/new}">Add New Package</a>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Destination</th>
+        <th>Duration (Days)</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="travelPackage : ${packages}">
+        <td th:text="${travelPackage.id}"></td>
+        <td th:text="${travelPackage.destination}"></td>
+        <td th:text="${travelPackage.duration}"></td>
+        <td th:text="${travelPackage.price}"></td>
+        <td th:text="${travelPackage.description}"></td>
+        <td>
+            <a th:href="@{/packages/edit/{id}(id=${travelPackage.id})}">Edit</a> |
+            <a th:href="@{/packages/delete/{id}(id=${travelPackage.id})}" onclick="return confirm('Are you sure you want to delete this package?')">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/}">Back to Home</a>
+
+
+<footer>
+    <p>&copy; Bhanu Upadhyay MCA 2026. All rights reserved.</p>
+</footer>
+</body>
+</html>
+
+
+

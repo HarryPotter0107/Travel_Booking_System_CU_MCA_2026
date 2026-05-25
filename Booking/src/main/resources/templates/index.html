@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Travelogic</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <script th:src="@{/js/scripts.js}"></script>
+</head>
+<body>
+<div class="background-image">
+    <h1>Travelogic</h1>
+    <p>Manage your bookings, customers, and travel packages.</p>
+    <nav>
+        <a th:href="@{/bookings}">Bookings</a> |
+        <a th:href="@{/customers}">Customers</a> |
+        <a th:href="@{/packages}">Travel Packages</a>
+    </nav>
+</div>
+
+<footer>
+    <p>&copy; Bhanu Upadhyay MCA 2026. All rights reserved.</p>
+</footer>
+</body>
+</html>
+
+

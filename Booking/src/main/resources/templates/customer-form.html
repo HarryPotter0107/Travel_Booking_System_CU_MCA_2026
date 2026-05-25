@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${customer.id != null ? 'Edit Customer' : 'Add New Customer'}"></title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <script th:src="@{/js/scripts.js}"></script>
+</head>
+<body  class="customer-form">
+<h1 th:text="${customer.id != null ? 'Edit Customer' : 'Add New Customer'}"></h1>
+<form th:action="@{${customer.id != null} ? '/customers/update/' + ${customer.id} : '/customers/add'}" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" th:value="${customer.name}" required>
+
+    <label for="contactDetails">Contact Details:</label>
+    <input type="text" id="contactDetails" name="contactDetails" th:value="${customer.contactDetails}" required>
+
+    <button type="submit" th:text="${customer.id != null ? 'Update' : 'Add'}"></button>
+</form>
+<a th:href="@{/customers}">Back to Customers</a>
+
+<footer>
+    <p>&copy; Bhanu Upadhyay MCA 2026. All rights reserved.</p>
+</footer>
+</body>
+</html>
+
+

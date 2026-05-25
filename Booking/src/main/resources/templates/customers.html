@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Customers</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <script th:src="@{/js/scripts.js}"></script>
+</head>
+<body  class="customer">
+<h1>Customers</h1>
+<a th:href="@{/customers/new}">Add New Customer</a>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Contact Details</th>
+        <th>Booking History</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="customer : ${customers}">
+        <td th:text="${customer.id}"></td>
+        <td th:text="${customer.name}"></td>
+        <td th:text="${customer.contactDetails}"></td>
+        <td th:text="${customer.bookingHistory}"></td>
+        <td>
+            <a th:href="@{/customers/edit/{id}(id=${customer.id})}">Edit</a> |
+            <a th:href="@{/customers/delete/{id}(id=${customer.id})}" onclick="return confirm('Are you sure you want to delete this customer?')">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/}">Back to Home</a>
+
+<footer>
+    <p>&copy; Bhanu Upadhyay MCA 2026. All rights reserved.</p>
+</footer>
+</body>
+</html>
+
+

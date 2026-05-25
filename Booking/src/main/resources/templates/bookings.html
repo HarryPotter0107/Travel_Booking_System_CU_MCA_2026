@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bookings</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <script th:src="@{/js/scripts.js}"></script>
+</head>
+<body class="bookings-page">
+<h1>Bookings</h1>
+<a th:href="@{/bookings/new}">Add New Booking</a>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Customer ID</th>
+        <th>Package ID</th>
+        <th>Booking Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="booking : ${bookings}">
+        <td th:text="${booking.id}"></td>
+        <td th:text="${booking.customerId}"></td>
+        <td th:text="${booking.packageId}"></td>
+        <td th:text="${#dates.format(booking.bookingDate, 'yyyy-MM-dd')}"></td>
+        <td th:text="${booking.status}"></td>
+        <td>
+            <a th:href="@{/bookings/edit/{id}(id=${booking.id})}">Edit</a> |
+            <a th:href="@{/bookings/delete/{id}(id=${booking.id})}" onclick="return confirm('Are you sure you want to delete this booking?')">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/}">Back to Home</a>
+
+
+<footer>
+    <p>&copy; Bhanu Upadhyay MCA 2026. All rights reserved.</p>
+</footer>
+</body>
+</html>
+
+
